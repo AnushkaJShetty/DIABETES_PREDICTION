@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            button {
+ position: relative;
+ padding: 19px 36px;
+ display: block;
+ text-decoration: none;
+ text-transform: uppercase;
+ overflow: hidden;
+ border-radius: 40px;
+ border: none;
+}
+
+button span {
+ position: relative;
+ color: #fff;
+ font-family: Arial;
+ letter-spacing: 8px;
+ z-index: 1;
+}
+
+button .liquid {
+ position: absolute;
+ top: -80px;
+ left: 0;
+ width: 100%;
+ height: 200px;
+ background: #4973ff;
+ box-shadow: inset 0 0 50px rgba(0, 0, 0, .5);
+ transition: .5s;
+}
+
+button .liquid::after,
+button .liquid::before {
+ content: '';
+ width: 200%;
+ height: 200%;
+ position: absolute;
+ top: 0;
+ left: 50%;
+ transform: translate(-50%, -75%);
+ background: #fff;
+}
+
+button .liquid::before {
+ border-radius: 45%;
+ background: rgba(20, 20, 20, 1);
+ animation: animate 5s linear infinite;
+}
+
+button .liquid::after {
+ border-radius: 40%;
+ background: rgba(20, 20, 20, .5);
+ animation: animate 10s linear infinite;
+}
+
+button:hover .liquid {
+ top: -120px;
+}
+
+@keyframes animate {
+ 0% {
+  transform: translate(-50%, -75%) rotate(0deg);
+ }
+
+ 100% {
+  transform: translate(-50%, -75%) rotate(360deg);
+ }
+}
+        </style>
+    </head>
+    <body class="mx-16 bg-gradient-to-r from-cyan-500 to-blue-500 bg-no-repeat bg-cover">
+        
+        <h1 class="text-5xl font-bold my-10 bg-gray-900 text-center text-white py-2 mx-44 rounded-md"> DIABETES PREDICTION</h1>
+    <div class="flex justify-center">
+        <div class="mt-10 drop-shadow-2xl w-1/2 bg-white rounded-md pt-5 pb-20 relative">
+        <form method="POST", action="{{url_for('home')}}" class="grid grid-cols-2 gap-y-5 mx-10 h-fill place-content-center">
+           <div class="flex flex-col"> <label>Pregnancies</label><input class="mt-2 drop-shadow-xl rounded-md outline-none border-2 border-gray-300  w-64" type="text", name='a'></div>
+            <div class="flex flex-col"> <label>Glucose</label>   <input class="mt-2 drop-shadow-xl rounded-md outline-none border-2 border-gray-300  w-64" type="text", name='b'></div>
+           <div class="flex flex-col"> <label>BloodPressure</label>   <input class="mt-2 drop-shadow-xl rounded-md outline-none border-2 border-gray-300  w-64" type="text", name='c'></div>
+           <div class="flex flex-col"> <label> SkinThickness</label> <input class="mt-2 drop-shadow-xl rounded-md outline-none border-2 border-gray-300  w-64" type="text", name='d'></div>
+           <div class="flex flex-col"> <label>Insulin</label>  <input class="mt-2 drop-shadow-xl rounded-md outline-none border-2 border-gray-300  w-64" type="text", name='e'></div>
+            <div class="flex flex-col"><label>BMI  </label>  <input class="mt-2 drop-shadow-xl rounded-md outline-none border-2 border-gray-300  w-64" type="text", name='f'></div>
+            <div class="flex flex-col"><label>DiabetesPedigreeFunction</label>  <input class="mt-2 drop-shadow-xl rounded-md outline-none border-2 border-gray-300  w-64" type="text", name='g'></div>
+            <div class="flex flex-col"><label>Age</label>  <input class="mt-2 drop-shadow-xl rounded-md outline-none border-2 border-gray-300  w-64" type="text", name='h'></div>
+            <div class="absolute bottom-5 left-64">
+                <button type="submit" class="p-2">
+                    <span>Predict</span>
+                    <div class="liquid"></div>
+                  </button>
+            </div>
+    </div>
+        </form>
+        </div>
+
+    </body>
+</html>
